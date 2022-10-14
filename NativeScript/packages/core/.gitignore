@@ -1,0 +1,12 @@
+dist
+*.js
+!jest.config.js
+*.map
+!xml/xml.js
+!js-libs/**/*.*
+!cli-hooks/**/*.*
+!css/**/*.ts
+css/parser.js*
+css/system-classes.js*
+!css-value/**/*.*
+!fetch/**/*.*

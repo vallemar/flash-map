@@ -1,0 +1,32 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "../../dist/packages/core",
+		"target": "es5",
+		"module": "commonjs",
+		"declaration": false,
+		"lib": ["es6", "dom"]
+	},
+	"include": ["../../packages/core/**/*.d.ts"],
+	"exclude": [
+		// "../../packages/core/index.d.ts",
+
+		"../../packages/core/ui/layouts/index.d.ts",
+
+		// "../../packages/core/__tests__",
+
+		"../../packages/core/node_modules",
+		"../../node_modules",
+		"../../packages/core/ui/frame/transition-definitions.android.d.ts",
+		"../../packages/core/platforms/*"
+	],
+	"typedocOptions": {
+		"entryPoints": ["../../packages/core/index.d.ts", "../../packages/core"],
+		"out": "../../dist/api-reference",
+		"name": "NativeScript",
+		"theme": "../../node_modules/nativescript-typedoc-theme",
+		"excludeExternals": true,
+		"externalPattern": "**/+(tns-core-modules|module).d.ts",
+		"exclude": ["../../packages/core/__tests__", "../../packages/core/**/*.ts"]
+	}
+}

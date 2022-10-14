@@ -1,0 +1,27 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"noEmitOnError": true,
+		"noEmitHelpers": true,
+		"declaration": true,
+		"noImplicitAny": false,
+		"noImplicitUseStrict": true,
+		"removeComments": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"diagnostics": true,
+		"sourceMap": true,
+		"inlineSourceMap": false,
+		"baseUrl": ".",
+		"outDir": "../../dist",
+		"types": ["node"],
+		"plugins": [
+			{
+				"transform": "../webpack5/src/transformers/NativeClass/index.ts",
+				"type": "raw"
+			}
+		]
+	},
+	"exclude": ["**/*.spec.ts", "**/*.test.ts", "dist", "__tests__"],
+	"include": ["**/*.ts", "./references.d.ts"]
+}

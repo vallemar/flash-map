@@ -1,43 +1,45 @@
 <template>
-  <Page>
+  <Page actionBarHidden="true" >
     <ActionBar>
       <Label text="Home"/>
     </ActionBar>
 
-    <GridLayout>
-      <Label class="info">
-        <FormattedString>
-          <Span class="fas" text.decode="&#xf135; "/>
-          <Span :text="message"/>
-        </FormattedString>
-      </Label>
-    </GridLayout>
+    <StackLayout >
+
+      <button text="Navigate" @tap="navigate" backgroundColor="red" />
+    </StackLayout>
+
+
   </Page>
 </template>
 
 <script lang="ts">
-  import Vue from "nativescript-vue";
+import Vue from "nativescript-vue";
+import Home2 from "~/components/Home2.vue";
 
-  export default Vue.extend({
-    computed: {
-      message() {
-        return "Blank {N}-Vue app";
-      }
-    }
-  });
+
+export default Vue.extend({
+
+  methods: {
+    navigate() {
+      this.$navigateTo(Home2, {
+        transition: {
+          name: "slideLeft",
+          duration: 300,
+          curve: "easeIn"
+        },
+      });
+    },
+
+  }
+});
 </script>
 
-<style scoped lang="scss">
-  @import '@nativescript/theme/scss/variables/blue';
+<style lang="scss">
 
-  // Custom styles
-  .fas {
-    @include colorize($color: accent);
-  }
 
-  .info {
-    font-size: 20;
-    horizontal-align: center;
-    vertical-align: center;
-  }
+.full-screen {
+  height: 100%;
+  width: 100%;
+}
 </style>
